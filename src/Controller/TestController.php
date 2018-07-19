@@ -12,8 +12,13 @@ class TestController extends Controller
      */
     public function index()
     {
-        return $this->render('test/index.html.twig', [
+        $test = "helloWorld";
+        $tableau = array(
+
             'controller_name' => 'TestController',
-        ]);
+            'test'=> $test,
+
+    );
+        return $this->render('test/index.html.twig', $tableau);
     }
 }
