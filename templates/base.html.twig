@@ -44,12 +44,26 @@
         </div>
     </nav>
     {% endblock %}
-        {% block body %}
 
+        {% block body %}
+            {% block test %}
+
+
+                <div class="test">
+                    <h2>Ceci est un test pour la réutilisation de ce block</h2>
+                    <p>es que sa va marcher, je me le demande, testons de redefinir le style de se bloque en utilisant parent().</p>
+                </div>
+
+
+
+            {% endblock %}
 
         {% endblock %}
 
         {% block javascripts %}{% endblock %}
+
+
+
 
 
     </body>
