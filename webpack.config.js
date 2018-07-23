@@ -15,9 +15,16 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     // uncomment to define the assets of the project
-    //.addEntry('js/app', './assets/js/app.js')
-    //.addStyleEntry('css/app', './assets/css/app.scss')
+        .addEntry('js/jquery', './assets/js/jquery.js')
+    .addEntry('js/popper.min', './assets/js/popper.min.js')
+    .addEntry('js/leaflet', './assets/leaflet/leaflet.js')
+    .addEntry('js/bootstrap.min', './assets/js/bootstrap.min.js')
 
+    //.addStyleEntry('css/app', './assets/css/app.scss')
+    .addStyleEntry('css/bootstrap', './assets/css/bootstrap.css')
+    .addStyleEntry('css/bootstrap-datetimepicker', './assets/css/bootstrap-datetimepicker.css')
+    .addStyleEntry('css/bootstrap-social', './assets/css/bootstrap-social.css')
+    .addStyleEntry('css/leaflet', './assets/leaflet/leaflet.css')
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
@@ -25,7 +32,13 @@ Encore
     //.enableSassLoader()
 
     // uncomment for legacy applications that require $/jQuery as a global variable
-    //.autoProvidejQuery()
+    .autoProvidejQuery()
+
+    .configureFilenames({
+
+        images: 'img/[name].[ext]'
+
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();

@@ -1,0 +1,26 @@
+body {
+    background-color: #fffaf0; /*floralwhite*/
+}
+
+#title {
+    margin: 50px;
+}
+
+#title h1 {
+    text-align: center;
+    border-bottom: solid limegreen 1px;
+    padding-bottom: 30px;
+}
+
+#title h3 {
+    padding-bottom: 15px;
+    border-bottom: solid limegreen 1px;
+}
+
+#title p {
+    border-bottom: solid red 1px;
+}
+
+#intro {
+    margin: 70px;
+}

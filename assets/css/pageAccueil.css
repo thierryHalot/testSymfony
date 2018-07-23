@@ -1,0 +1,21 @@
+.texteCommandeAccueil{
+    font-family: 'Cardo', serif;
+}
+
+#title {
+    margin: 50px;
+}
+
+#title h2 {
+    text-align: center;
+    border-bottom: solid limegreen 1px;
+    padding-bottom: 30px;
+}
+
+#title p {
+    border-bottom: solid red 1px;
+}
+
+#description {
+    margin: 50px;
+}
