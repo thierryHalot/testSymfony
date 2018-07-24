@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Apprenant;
 use App\Entity\Theme;
 use App\Repository\ThemeRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,6 +35,22 @@ class FixuresController extends Controller
         $em->persist(new Theme("JS"));
         $em->persist(new Theme("JAVA"));
         $em->persist(new Theme("PYTHON"));
+        $em->flush();
+
+        return new Response();
+    }
+
+    /**
+     * @Route("/apprenant", name="apprenant")
+     */
+    public function generateApprenant(){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $em->persist(new Apprenant('titi','titi@email','titi'));
+        $em->persist(new Apprenant('cedric','cedric@email','cedric'));
+        $em->persist(new Apprenant('fred','fred@email','fred'));
+        $em->persist(new Apprenant('lolo','lolo@email','lolo'));
         $em->flush();
 
         return new Response();
