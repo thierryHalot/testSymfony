@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Apprenant;
+use App\Entity\Cours;
 use App\Entity\Theme;
 use App\Repository\ThemeRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -56,6 +57,21 @@ class FixuresController extends Controller
         return new Response();
     }
 
+    /**
+     * @Route("/cour", name="cour")
+     */
+    public function generateCour(){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $em->persist(new Cours('manipulation du DOM','Tous dabord il faut....'));
+        $em->persist(new Cours('leaflet','Sert a crée des map en js'));
+        $em->persist(new Cours('background-color','vous pourrez avoir de magnifique fond en css '));
+        $em->persist(new Cours('get element by id','commencer par crée une div avec un id...'));
+        $em->flush();
+
+        return new Response();
+    }
     /**
      * @Route("/themeALL", name="themeALL")
      */
