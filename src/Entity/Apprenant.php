@@ -39,10 +39,10 @@ class Apprenant
      */
     private $resultats;
 
-    public function __construct($non,$email,$password)
+    public function __construct($nom ="",$email="",$password="")
     {
         $this->resultats = new ArrayCollection();
-        $this->nom = $non;
+        $this->non = $nom;
         $this->email = $email;
         $this->password = $password;
     }
