@@ -22,7 +22,7 @@ class ThemeRepository extends ServiceEntityRepository
 //    /**
 //     * @return Theme[] Returns an array of Theme objects
 //     */
-    /*
+    
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('t')
@@ -34,7 +34,7 @@ class ThemeRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Theme
@@ -50,11 +50,11 @@ class ThemeRepository extends ServiceEntityRepository
     public function test()
     {
 
-        $test = $this->getEntityManager();
+        return $test = $this->getEntityManager()->createQuery("SELECT * FROM App\Entity\Theme")->getResult();
 
-        $query = $test->createQuery("SELECT * FROM theme");
 
-        return $query->execute();
+
+
 
 
 
