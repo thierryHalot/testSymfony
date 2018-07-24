@@ -35,6 +35,9 @@
         <li>lancement d'une methode <code><a href="{{ path("twig") }}"> ici !!!</a></code></li>
 
     </ul>
+            {% if is_granted(true) %}
+                <p>sa marche je suis admin</p>
+            {% endif %}
         </div>
 
 

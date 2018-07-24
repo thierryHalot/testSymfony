@@ -11,7 +11,7 @@
     {% block navbar %}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">
-                <img src="{{ logo }}"  height="40">
+                <img src="{{ asset("build/img/vide.png") }}"  height="40">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,29 +22,70 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
                     </li>
+                    {% if not is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="#">Cartes</a>
                     </li>
+                    {% if not is_granted('ROLE_USER') %}
                     <li class="nav-item">
                         <a class="nav-link" href="#">Commander</a>
                     </li>
+                    {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Commander
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Commande Simple</a>
+                                <a class="dropdown-item" href="#">Commande rapide</a>
+                                <a class="dropdown-item" href="#">Commande hebdo</a>
+                            </div>
+
+                        </li>
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Admin</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Gestion Pizza
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="">ajouter une pizza</a>
+                                <a class="dropdown-item" href="">modifier une pizza</a>
+                            </div>
+                        </li>
+
+                    {% endif %}
                 </ul>
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<div>
+    <form method="get" action="/logout">
+        <button type="submit" class="btn btn-danger" value="Submit">Deconnexion</button>
+    </form>
+</div>
+
+    {% else %}
+
+        <div class="">
+            <form method="POST" action="{{ path("connexion") }}" id="form" class="form-inline my-2 my-lg-0">
+                <label for="email">Email :</label>
+                <input type="text" class="form-control mr-sm-2" name="_username" id="email" value="admin@admin.fr">
+                <label for="mdp">Mdp :</label>
+                <input type="password" class="form-control mr-sm-2" name="_password" id="mdp" value="admin">
+
+                <button type="submit" class="btn btn-success my-2 my-sm-0" value="Submit">Connexion</button>
 
 
-                    <form method="POST" action="/api/login" id="form" class="form-inline my-2 my-lg-0">
-                        <label for="email">Email :</label>
-                        <input type="email" class="form-control mr-sm-2" name="email" id="email" value="admin@admin.fr">
-                        <label for="mdp">Mdp :</label>
-                        <input type="password" class="form-control mr-sm-2" name="password" id="mdp" value="admin">
-
-                        <button type="submit" class="btn btn-success my-2 my-sm-0" value="Submit">Connexion</button>
-
-
-                    </form>
-            </div>
+            </form>
+        </div>
+                {% endif %}
         </nav>
     {% endblock %}
 
@@ -60,6 +101,7 @@
 
 
             {% endblock %}
+
 
         {% endblock %}
 

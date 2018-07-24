@@ -15,10 +15,11 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     // uncomment to define the assets of the project
-        .addEntry('js/jquery', './assets/js/jquery.js')
-    .addEntry('js/popper.min', './assets/js/popper.min.js')
+    .addEntry('js/jquery', './assets/js/jquery.js')
+    .addEntry('js/app', './assets/js/config.js')
+    .addEntry('js/popper', './assets/js/popper.min.js')
     .addEntry('js/leaflet', './assets/leaflet/leaflet.js')
-    .addEntry('js/bootstrap.min', './assets/js/bootstrap.min.js')
+    .addEntry('js/bootstrap', './assets/js/bootstrap.min.js')
 
     //.addStyleEntry('css/app', './assets/css/app.scss')
     .addStyleEntry('css/bootstrap', './assets/css/bootstrap.css')

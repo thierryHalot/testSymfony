@@ -34,7 +34,7 @@ class TestController extends Controller
             'users'=> $personnes,
             'logo'=> $logo
     );
-
+        var_dump($_COOKIE);
         return $this->render('test/index.html.twig', $tableau);
     }
 }
