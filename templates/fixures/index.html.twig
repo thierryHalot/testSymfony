@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+    <h1>Voici la liste des themes</h1>
+    <ul>
+    {% for them in theme %}
+
+            <li>{{ them.nom }}</li>
+
+    {% endfor %}
+    </ul>
+{% endblock %}
